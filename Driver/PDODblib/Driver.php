@@ -56,7 +56,8 @@ class Driver implements \Doctrine\DBAL\Driver
             'ansi_nulls',
             'ansi_warnings',
             'ansi_padding',
-            'concat_null_yields_null'
+            'concat_null_yields_null',
+            'quoted_identifier'
         );
 
         $options = array_intersect_key($options, array_flip($availableOptions));
