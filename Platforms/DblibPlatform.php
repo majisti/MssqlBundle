@@ -149,6 +149,14 @@ class DblibPlatform extends SQLServerPlatform
 
     /**
      * @override
+     */
+    public function getDateFormatString()
+    {
+        return 'Y-m-d';
+    }
+    
+    /**
+     * @override
      * @return bool
      */
     public function supportsLimitOffset()
