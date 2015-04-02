@@ -132,6 +132,9 @@ class DblibPlatform extends SQLServerPlatform
     {
         parent::initializeDoctrineTypeMappings();
 
+        //add Date
+        $this->doctrineTypeMapping['date'] = 'date';
+
         // add uniqueidentifier
         $this->doctrineTypeMapping['uniqueidentifier'] = 'uniqueidentifier';
     }
