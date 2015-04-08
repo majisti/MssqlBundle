@@ -154,7 +154,7 @@ class DblibPlatform extends SQLServerPlatform
     {
         return 'Y-m-d';
     }
-    
+
     /**
      * @override
      * @return bool
