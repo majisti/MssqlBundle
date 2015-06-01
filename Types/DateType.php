@@ -11,6 +11,7 @@ use Doctrine\DBAL\Platforms\AbstractPlatform;
 use Doctrine\DBAL\Types\Type;
 use Doctrine\DBAL\Types\DateType as BaseDateType;
 use Doctrine\DBAL\Types\ConversionException;
+use Realestate\MssqlBundle\Types\RealestateDateTime;
 
 /**
  * Type that maps an SQL DATE to a PHP DateTime object.
@@ -36,12 +37,16 @@ class DateType extends BaseDateType
     }   
     
     public function convertToPHPValue($value, AbstractPlatform $platform)
-    {   
+    {
+        if ($value === null) {
+            return null;
+        }
+
         if ($value instanceof \DateTime) {
             return null;
-        }   
+        }
 
-        $val = \Realestate\MssqlBundle\Types\RealestateDateTime::createFromFormat('!'.$platform->getDateFormatString(), $value);
+        $val = RealestateDateTime::createFromFormat('!'.$platform->getDateFormatString(), $value);
 
         if (!$val) {
             throw ConversionException::conversionFailedFormat($value, $this->getName(), $platform->getDateFormatString());
