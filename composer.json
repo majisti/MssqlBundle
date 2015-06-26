@@ -1,5 +1,5 @@
 {
-    "name": "headdev/mssql-bundle",
+    "name": "majisti/mssql-bundle",
     "description": "Driver for work with MsSQL server",
     "authors": [
         {
